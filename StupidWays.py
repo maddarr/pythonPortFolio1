@@ -1,5 +1,5 @@
 import random
-
+question = 0
 
 
 
@@ -56,15 +56,26 @@ questions = {"Robert Taylor died in the grave he was digging at work?": True, "W
 
 
 def random_questions():
-    question_number = 0
-    question_number += 1
+   # question += 1
     correct_answers = 0
-    question = random.choice(list(questions.keys()))
-    print(question)
+    quest = key, val = random.choice(list(questions.items()))
+    print(quest)
     question_answer = input("Type (True) or (False) below for your answer: ")
-    print(question_number)
+    if question_answer == val:
+        correct_answers += 1
+        print("You are correct!!  great job!!")
+        #question += 1
+    else: correct_answers += 0
+        #    question += 1
+        
  
+    
 random_questions()
 
-def next():
+
+#print("You have " + correct_answers)
+
+next_question = input("ready to move on?: ")
+if next_question == "Yes":
     random_questions()
+else: print("OK")
