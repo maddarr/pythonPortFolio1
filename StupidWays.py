@@ -1,12 +1,12 @@
 import random
 import sys
-import os
+
 question = 0
 correct_answers = 0
 
 
 def title():
-    os.system('clear')
+
 
     title = """
   ====     ===========   ===   ===   =======     ===   ====         ===   ==   ===     ===     ==     ==     ====
@@ -64,8 +64,8 @@ questions = {"Robert Taylor died in the grave he was digging at work?": True, "W
 
 
 
+
 def move_on():
-    os.system('clear')
     global question
     if question < 5:
         next_question = input("ready to move on?: ")
@@ -76,6 +76,20 @@ def move_on():
             print("OK") 
             print("")
             print("Thanks for playing Stupid Ways To Die")
+            print(
+            """
+            
+            Would you Like to Play again? 
+            
+            
+                  """)
+            play_again = input("Type Y or N: ")
+            if play_again == "Y" or play_again == "y":
+               print("Type - run StupidWays.py - in the console")
+               sys.exit()
+            else: 
+                sys.exit()
+            
     else:
         if correct_answers < 3:
             fail_quiz()
@@ -92,20 +106,60 @@ def move_on():
             
 
 def fail_quiz():
-    print("Sorry you didnt get enough to even Pass, you only got " + correct_answers + " out of 5")
-    print("")
+    global correct_answers
+    print("Sorry you didnt get enough to even Pass, you only got " + str(correct_answers) + " out of 5")
+    print(
+"""
+     ==========     =====      ===     ===
+     ==========    =======     ===     ===
+     ===          ==== ====    ===     ===
+     ===         ====   ====   ===     ===
+     ======      ===========   ===     ===
+     ======      ===========   ===     ===
+     ===         ===     ===   ===     ===
+     ===         ===     ===   ===     ===========
+     ===         ===     ===   ===     ===========
+     
+     
+""")
     sys.exit()
 
 
 def pass_quiz():
-    print("Not too bad, you Passed but only got " + correct_answers + " out of 5")
-    print("")
+    global correct_answers
+    print("Not too bad, you Passed but only got " + str(correct_answers) + " out of 5")
+    print(
+"""
+     ==========        =====          =====          =====
+     ===========      =======        ========       ========
+     ===     ===     ==== ====      ===    ==      ===    ==
+     ===     ===    ====   ====     ===            ===
+     ==========     ===========       ===            === 
+     =========      ===========         ===            ===
+     ===            ===     ===     ==    ===      ==    ===
+     ===            ===     ===     ========       ========
+     ===            ===     ===      =====           =====
+
+""")
     sys.exit()
     
     
 def win_quiz():
-    print("CONGRATULATIONS!!! you Won!!! , you got " + correct_answers + " out of 5 ")
-    print("")
+    global correct_answers
+    print("CONGRATULATIONS!!! you Won!!! , you got " + str(correct_answers) + " out of 5 ")
+    print(
+"""
+     ===   ==   ===    ===    =====      ===    ===
+     ===  ====  ===    ===    ======     ===    ===
+     ===  ====  ===    ===    === ===    ===    ===
+     === ====== ===    ===    ===  ===   ===    ===
+     ======  ======    ===    ===   ===  ===    ===
+     =====    =====    ===    ===    === ===
+     ====      ====    ===    ===     ======    ===
+     ===        ===    ===    ===      =====    ===
+        
+"""
+        )
     sys.exit()
     
 
