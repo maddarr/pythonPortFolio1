@@ -1,6 +1,6 @@
 import random
 question = 0
-
+correct_answers = 0
 
 
 def title():
@@ -58,18 +58,17 @@ questions = {"Robert Taylor died in the grave he was digging at work?": True, "W
 def random_questions():
    # question += 1
     correct_answers = 0
-    quest = key, val = random.choice(list(questions.items()))
-    # I tried a for loop here
-    for key, value in quest:
-        question = key
-        answer = value
-    print(question)
+    quest = random.choice(list(questions.items()))
+    print(quest[0])
+    answer = quest[1]
     question_answer = input("Type (True) or (False) below for your answer: ")
     if question_answer == answer:
-        correct_answers += 1
-        print("You are correct!!  great job!!")
+       correct_answers += 1
+       print("You are correct!!  great job!!")
         #question += 1
     else: correct_answers += 0
+    print("Oh Im sorry that was incorrect")
+        
         #    question += 1
         
  
@@ -77,7 +76,7 @@ def random_questions():
 random_questions()
 
 
-#print("You have " + correct_answers)
+print("You have " + str(correct_answers))
 
 next_question = input("ready to move on?: ")
 if next_question == "Yes":
