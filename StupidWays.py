@@ -59,9 +59,13 @@ def random_questions():
    # question += 1
     correct_answers = 0
     quest = key, val = random.choice(list(questions.items()))
-    print(quest)
+    # I tried a for loop here
+    for key, value in quest:
+        question = key
+        answer = value
+    print(question)
     question_answer = input("Type (True) or (False) below for your answer: ")
-    if question_answer == val:
+    if question_answer == answer:
         correct_answers += 1
         print("You are correct!!  great job!!")
         #question += 1
