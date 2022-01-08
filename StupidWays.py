@@ -1,8 +1,15 @@
 import random
 import sys
+import time
 
 question = 0
 correct_answers = 0
+
+def slowprint(s):
+    for c in s + '\n':
+        sys.stdout.write(c)
+        sys.stdout.flush()
+        time.sleep(1./30)
 
 
 def title():
@@ -43,9 +50,9 @@ title()
 
 name = input("What is your name: ")
 print("")
-print("Welcome to the game Stupid Ways To Die, " + name + ".")
-print("""
-In this game you will be presented with 5 statements on a person and the way they supposedly died, it is your job to guess it the way described is True or False. If you get all of the answers correct you WIN, if you get either 3 or 4 correct you PASS but if you get less than 3 correct you FAIL.
+slowprint("Welcome to the game Stupid Ways To Die, " + name + ".")
+slowprint("""
+In this game you will be presented with 5 statements on a person and the way they supposedly died, it is your job to guess if the way described is True or False. If you get all of the answers correct you WIN, if you get either 3 or 4 correct you PASS but if you get less than 3 correct you FAIL.
 
 Are you ready?
 
@@ -68,10 +75,10 @@ def move_on():
         if next_question == "Yes" or next_question == "Y" or next_question == "y" or next_question == "yes":
             random_questions()
         else:
-            print("OK") 
+            slowprint("OK") 
             print("")
-            print("Thanks for playing Stupid Ways To Die " + name + ".")
-            print(
+            slowprint("Thanks for playing Stupid Ways To Die " + name + ".")
+            slowprint(
             """
             
             Would you Like to Play again? 
@@ -80,7 +87,7 @@ def move_on():
                   """)
             play_again = input("Type Y or N: ")
             if play_again == "Y" or play_again == "y":
-               print("Type - run StupidWays.py - in the console")
+               slowprint("Type - run StupidWays.py - in the console")
                sys.exit()
               
             else: 
@@ -108,7 +115,7 @@ def fail_quiz():
           
           
           """)
-    print("Sorry " + name + " you didnt get enough to even Pass, you only got " + str(correct_answers) + " out of 5")
+    slowprint("Sorry " + name + " you didnt get enough to even Pass, you only got " + str(correct_answers) + " out of 5")
     print(
 """
      ==========     =====      ===     ===
@@ -133,7 +140,7 @@ def pass_quiz():
           
           
           """)
-    print("Not too bad, " + name + " you Passed but only got " + str(correct_answers) + " out of 5")
+    slowprint("Not too bad, " + name + " you Passed but only got " + str(correct_answers) + " out of 5")
     print(
 """
      ==========        =====          =====          =====
@@ -157,7 +164,7 @@ def win_quiz():
           
           
           """)
-    print("CONGRATULATIONS!!! " + name + " you Won!!! , you got " + str(correct_answers) + " out of 5 ")
+    slowprint("CONGRATULATIONS!!! " + name + " you Won!!! , you got " + str(correct_answers) + " out of 5 ")
     print(
 """
      ===   ==   ===    ===    =====      ===    ===
@@ -180,7 +187,7 @@ def random_questions():
     question += 1
     while question <= 5:
         quest = random.choice(list(questions.items()))
-        print(quest[0])
+        slowprint(quest[0])
         answer = str(quest[1])
         question_answer = input("Type (True) or (False) below for your answer: ")
         if question_answer == "True" or question_answer == "true" or question_answer == "T" or question_answer == "t":
@@ -194,20 +201,20 @@ def random_questions():
             correct_answers += 1
             print("")
             print("")
-            print("You are correct!! " + name + ", great job!!")
+            slowprint("You are correct!! " + name + ", great job!!")
             print("")
             print("")
-            print(name + ", you have " + str(correct_answers) + " correct answers")
+            slowprint(name + ", you have " + str(correct_answers) + " correct answers")
             print("")
-            print(name + ", you have now asnwered " + str(question) + " out of the 5 trivia questions")
+            slowprint(name + ", you have now asnwered " + str(question) + " out of the 5 trivia questions")
             move_on()
         else:
             print("")
             print("")
-            print("Oh Im sorry " + name + " that was incorrect, the answer was infact " + answer + ".")
+            slowprint("Oh Im sorry " + name + " that was incorrect, the answer was infact " + answer + ".")
             print("")
             print("")
-            print(name + ", you have now asnwered " + str(question) + " out of the 5 trivia questions")
+            slowprint(name + ", you have now asnwered " + str(question) + " out of the 5 trivia questions")
             move_on()
     if correct_answers < 3:
         fail_quiz()
