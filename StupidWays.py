@@ -42,6 +42,7 @@ def title():
 title()
 
 name = input("What is your name: ")
+print("")
 print("Welcome to the game Stupid Ways To Die, " + name + ".")
 print("""
 In this game you will be presented with 5 statements on a person and the way they supposedly died, it is your job to guess it the way described is True or False. If you get all of the answers correct you WIN, if you get either 3 or 4 correct you PASS but if you get less than 3 correct you FAIL.
@@ -58,25 +59,18 @@ questions = {"""Robert Taylor died in the grave he was digging at work?""": True
 
 
 
-
-
-
-
-
-
-
-
 def move_on():
     global question
     if question < 5:
         next_question = input("ready to move on?: ")
+        print("")
         print("")
         if next_question == "Yes" or next_question == "Y" or next_question == "y" or next_question == "yes":
             random_questions()
         else:
             print("OK") 
             print("")
-            print("Thanks for playing Stupid Ways To Die")
+            print("Thanks for playing Stupid Ways To Die " + name + ".")
             print(
             """
             
@@ -88,6 +82,7 @@ def move_on():
             if play_again == "Y" or play_again == "y":
                print("Type - run StupidWays.py - in the console")
                sys.exit()
+              
             else: 
                 sys.exit()
             
@@ -108,7 +103,12 @@ def move_on():
 
 def fail_quiz():
     global correct_answers
-    print("Sorry you didnt get enough to even Pass, you only got " + str(correct_answers) + " out of 5")
+    print("""
+          
+          
+          
+          """)
+    print("Sorry " + name + " you didnt get enough to even Pass, you only got " + str(correct_answers) + " out of 5")
     print(
 """
      ==========     =====      ===     ===
@@ -128,7 +128,12 @@ def fail_quiz():
 
 def pass_quiz():
     global correct_answers
-    print("Not too bad, you Passed but only got " + str(correct_answers) + " out of 5")
+    print("""
+          
+          
+          
+          """)
+    print("Not too bad, " + name + " you Passed but only got " + str(correct_answers) + " out of 5")
     print(
 """
      ==========        =====          =====          =====
@@ -147,7 +152,12 @@ def pass_quiz():
     
 def win_quiz():
     global correct_answers
-    print("CONGRATULATIONS!!! you Won!!! , you got " + str(correct_answers) + " out of 5 ")
+    print("""
+          
+          
+          
+          """)
+    print("CONGRATULATIONS!!! " + name + " you Won!!! , you got " + str(correct_answers) + " out of 5 ")
     print(
 """
      ===   ==   ===    ===    =====      ===    ===
@@ -182,11 +192,22 @@ def random_questions():
         
         if question_answer == answer:
             correct_answers += 1
-            print("You are correct!!  great job!!")
-            print("You have " + str(correct_answers) + " correct answers")
+            print("")
+            print("")
+            print("You are correct!! " + name + ", great job!!")
+            print("")
+            print("")
+            print(name + ", you have " + str(correct_answers) + " correct answers")
+            print("")
+            print(name + ", you have now asnwered " + str(question) + " out of the 5 trivia questions")
             move_on()
         else:
-            print("Oh Im sorry that was incorrect")
+            print("")
+            print("")
+            print("Oh Im sorry " + name + " that was incorrect, the answer was infact " + answer + ".")
+            print("")
+            print("")
+            print(name + ", you have now asnwered " + str(question) + " out of the 5 trivia questions")
             move_on()
     if correct_answers < 3:
         fail_quiz()
