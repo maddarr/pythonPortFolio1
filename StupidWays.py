@@ -87,7 +87,9 @@ def move_on():
                   """)
             play_again = input("Type Y or N: ")
             if play_again == "Y" or play_again == "y":
-               slowprint("Type - run StupidWays.py - in the console")
+               slowprint("Type - python StupidWays.py - in the console")
+               print("")
+               slowprint("However if you dont have python installed, this shouldnt be working anyway. LOL")
                sys.exit()
               
             else: 
